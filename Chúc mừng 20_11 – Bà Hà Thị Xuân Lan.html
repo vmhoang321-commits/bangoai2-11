@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chúc mừng 20/11 – Bà Hà Thị Xuân Lan</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#4a0d1f;--rose:#e0245e;--gold:#f6b93b;--paper:#fff8ec;--card:rgba(255,248,236,.92);--txt:#4a0d1f;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--card:rgba(255,240,220,.94)}}
+:root[data-theme="dark"]{--card:rgba(255,240,220,.94)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{font-family:"Playfair Display",Georgia,"Times New Roman",serif;color:var(--txt);
+background:linear-gradient(135deg,#ff6a88 0%,#ff99ac 30%,#fcb045 65%,#fd1d1d 120%);background-attachment:fixed;overflow-x:hidden}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+.script{font-family:"Dancing Script","Brush Script MT",cursive}
+/* intro */
+#intro{position:fixed;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:24px;
+background:radial-gradient(circle at 50% 40%,#ff8fa8,#c2185b 60%,#6a0f2e);color:#fff;transition:opacity .9s,transform .9s}
+#intro.gone{opacity:0;transform:scale(1.15);pointer-events:none}
+#intro h2{margin:0;font-size:clamp(1.2rem,4vw,1.8rem);font-weight:500;letter-spacing:.05em}
+.env{font-size:clamp(5rem,22vw,8rem);cursor:pointer;animation:bob 2s ease-in-out infinite;filter:drop-shadow(0 10px 20px rgba(0,0,0,.35));background:none;border:0;line-height:1}
+@keyframes bob{50%{transform:translateY(-14px) rotate(-4deg)}}
+.hint{opacity:.85;font-style:italic}
+/* main */
+main{position:relative;z-index:2;max-width:980px;margin:0 auto;padding:36px 18px 70px;text-align:center}
+.date{display:inline-block;background:var(--ink);color:var(--gold);padding:6px 20px;border-radius:30px;letter-spacing:.2em;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+h1{font-size:clamp(1.8rem,6vw,3.2rem);margin:18px 0 4px;color:#fff;text-shadow:0 3px 14px rgba(120,0,40,.6);line-height:1.2}
+.name{font-size:clamp(2.6rem,10vw,5.2rem);line-height:1.1;margin:6px 0;background:linear-gradient(90deg,#fff7c2,#ffd54a,#fff,#ffd54a);background-size:250%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite;filter:drop-shadow(0 3px 8px rgba(110,0,40,.55))}
+@keyframes shine{to{background-position:250% 0}}
+.sub{color:#fff;font-style:italic;font-size:clamp(1rem,3vw,1.25rem);text-shadow:0 2px 8px rgba(100,0,30,.6);margin:6px auto 26px;max-width:620px}
+.prog{color:#fff;font-weight:700;margin-bottom:18px;text-shadow:0 2px 6px rgba(100,0,30,.6)}
+.bar{height:10px;max-width:320px;margin:8px auto 0;background:rgba(255,255,255,.4);border-radius:10px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#fff);transition:width .6s}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;margin-top:22px}
+.flower{background:var(--card);border:2px solid rgba(246,185,59,.8);border-radius:22px;padding:18px 10px 16px;cursor:pointer;font:inherit;color:var(--ink);
+box-shadow:0 10px 24px rgba(120,0,40,.28);transition:transform .25s,box-shadow .25s;position:relative}
+.flower:hover,.flower:focus-visible{transform:translateY(-8px) rotate(-2deg);box-shadow:0 18px 34px rgba(120,0,40,.4);outline:none}
+.flower .em{display:block;font-size:3.2rem;animation:sway 3s ease-in-out infinite}
+.flower:nth-child(even) .em{animation-delay:-1.5s}
+@keyframes sway{50%{transform:rotate(9deg) scale(1.1)}}
+.flower b{display:block;margin-top:6px;font-size:1.05rem}
+.flower.open{background:linear-gradient(160deg,#fff3c4,#ffd1dc)}
+.flower.open::after{content:"✓";position:absolute;top:8px;right:12px;color:var(--rose);font-weight:700}
+#finaleBtn{margin-top:32px;font:700 1.15rem "Playfair Display",Georgia,serif;padding:14px 30px;border:0;border-radius:40px;color:#fff;cursor:pointer;
+background:linear-gradient(90deg,#c2185b,#ff5722);box-shadow:0 10px 26px rgba(90,0,30,.5);display:none;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:scale(1.07)}}
+footer{margin-top:40px;color:#fff;text-shadow:0 2px 8px rgba(100,0,30,.6)}
+/* modal */
+#modal{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(60,0,25,.6);backdrop-filter:blur(4px)}
+#modal.show{display:flex}
+.letter{position:relative;max-width:560px;width:100%;background:var(--paper);background-image:repeating-linear-gradient(transparent 0 33px,rgba(224,36,94,.13) 33px 34px);border-radius:14px;padding:34px 28px 28px;border:3px double var(--gold);box-shadow:0 24px 60px rgba(0,0,0,.5);animation:pop .5s cubic-bezier(.2,1.4,.4,1);text-align:left;max-height:90vh;overflow:auto}
+@keyframes pop{from{transform:scale(.6) rotate(-6deg);opacity:0}}
+.letter .big{font-size:3rem;text-align:center}
+.letter h3{margin:4px 0 14px;text-align:center;color:var(--rose);font-size:2rem}
+.letter p{font-size:1.15rem;line-height:34px;margin:0;min-height:136px;color:var(--ink)}
+.sign{text-align:right;margin-top:10px;font-size:1.6rem;color:var(--rose)}
+.x{position:absolute;top:8px;right:12px;background:none;border:0;font-size:1.8rem;color:var(--ink);cursor:pointer}
+/* finale */
+#finale{position:fixed;inset:0;z-index:40;display:none;align-items:center;justify-content:center;padding:20px;text-align:center;background:radial-gradient(circle,#c2185b,#4a0d1f);color:#fff}
+#finale.show{display:flex}
+#finale .box{max-width:640px;animation:pop .8s}
+#finale h2{font-size:clamp(2rem,8vw,3.6rem);margin:0 0 14px;color:#ffd54a}
+#finale p{font-size:1.2rem;line-height:1.8}
+#finale button{margin-top:18px;padding:10px 24px;border-radius:30px;border:2px solid #ffd54a;background:none;color:#ffd54a;font:inherit;cursor:pointer}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+
+<div id="intro">
+  <h2>Một bức thư cháu gửi đến bà</h2>
+  <button class="env" id="open" aria-label="Mở thư">💌</button>
+  <div class="hint">Chạm vào phong thư để mở</div>
+</div>
+
+<main>
+  <span class="date">20 · 11</span>
+  <h1 class="script">Ngày Nhà giáo Việt Nam</h1>
+  <div class="name script">Bà Hà Thị Xuân Lan</div>
+  <p class="sub">Người bà, người cô giáo văn đã dạy cháu yêu từng con chữ, từng trang văn và cả những điều dịu dàng nhất của cuộc sống.</p>
+  <div class="prog"><span id="cnt">0</span>/6 lời chúc đã mở
+    <div class="bar"><i id="bar"></i></div></div>
+  <div class="grid" id="grid"></div>
+  <button id="finaleBtn">🎁 Món quà cuối cùng dành cho bà</button>
+  <footer class="script" style="font-size:1.5rem">Chạm vào từng đóa hoa để nhận lời chúc ✨</footer>
+</main>
+
+<div id="modal" role="dialog" aria-modal="true">
+  <div class="letter">
+    <button class="x" id="close" aria-label="Đóng">×</button>
+    <div class="big" id="mEm"></div>
+    <h3 class="script" id="mTitle"></h3>
+    <p id="mText"></p>
+    <div class="sign script">Cháu của bà 💖</div>
+  </div>
+</div>
+
+<div id="finale">
+  <div class="box">
+    <div style="font-size:4rem">🌸📖🌸</div>
+    <h2 class="script">Bà yêu quý của cháu,</h2>
+    <p>Bà không chỉ là người bà thương yêu của cháu, mà còn là cô giáo đã dạy bao thế hệ học trò biết yêu văn chương. Mỗi trang văn bà giảng là một cánh cửa mở ra thế giới, mỗi lời bà dặn là một hạt mầm đẹp trong tâm hồn cháu. Cảm ơn bà đã luôn kiên nhẫn và đầy yêu thương.<br>Chúc bà mãi tươi trẻ, bình an và hạnh phúc. Chúc mừng ngày 20/11, bà ơi! Cháu thương bà nhiều lắm.</p>
+    <button id="again">Xem lại những đóa hoa</button>
+  </div>
+</div>
+
+<script>
+var W=[
+{e:"🌸",t:"Lời tri ân",m:"Cảm ơn bà đã dạy cháu biết yêu từng con chữ, từ những câu ca dao bà ru cháu ngủ đến những trang văn bà say mê giảng cho học trò."},
+{e:"🌹",t:"Người gieo hạt",m:"Bà đã gieo vào lòng cháu những hạt mầm của cái đẹp và sự tử tế. Hôm nay hạt mầm ấy đang lớn lên từng ngày."},
+{e:"🌻",t:"Sức khỏe",m:"Chúc bà luôn dồi dào sức khỏe, giọng bà mãi ấm và trong như những buổi chiều bà kể chuyện cho cháu nghe."},
+{e:"🪷",t:"Bình an",m:"Chúc bà mỗi sớm mai thức dậy đều thấy lòng nhẹ nhõm, mỗi ngày trôi qua đều êm đềm như một khúc thơ hiền."},
+{e:"🌺",t:"Hạnh phúc",m:"Chúc bà luôn vui khỏe bên con cháu, tiếng cười rộn rã khắp nhà, niềm vui đong đầy như hoa nở khắp mùa."},
+{e:"💐",t:"Lời hứa của cháu",m:"Cháu hứa sẽ sống thật tử tế, chăm đọc sách và chăm học, để xứng đáng với những gì bà đã trao. Bà mãi là cô giáo văn và là người bà tuyệt vời nhất của cháu."}
+];
+var grid=document.getElementById("grid"),done={},n=0,typer;
+W.forEach(function(w,i){
+  var b=document.createElement("button");b.className="flower";
+  b.innerHTML='<span class="em">'+w.e+'</span><b class="script" style="font-size:1.5rem">'+w.t+'</b>';
+  b.onclick=function(){show(i,b)};grid.appendChild(b);
+});
+function show(i,b){
+  var w=W[i];document.getElementById("mEm").textContent=w.e;
+  document.getElementById("mTitle").textContent=w.t;
+  var p=document.getElementById("mText");p.textContent="";
+  document.getElementById("modal").classList.add("show");
+  clearInterval(typer);var k=0;
+  typer=setInterval(function(){p.textContent=w.m.slice(0,++k);if(k>=w.m.length)clearInterval(typer)},28);
+  burst(innerWidth/2,innerHeight/2,40);
+  if(!done[i]){done[i]=1;n++;b.classList.add("open");
+    document.getElementById("cnt").textContent=n;
+    document.getElementById("bar").style.width=(n/6*100)+"%";
+    if(n==6)document.getElementById("finaleBtn").style.display="inline-block";}
+}
+document.getElementById("close").onclick=function(){clearInterval(typer);document.getElementById("modal").classList.remove("show")};
+document.getElementById("modal").onclick=function(e){if(e.target.id=="modal")document.getElementById("close").onclick()};
+document.getElementById("open").onclick=function(){document.getElementById("intro").classList.add("gone");burst(innerWidth/2,innerHeight/2,90)};
+document.getElementById("finaleBtn").onclick=function(){document.getElementById("finale").classList.add("show");rain=1;for(var j=0;j<5;j++)setTimeout(function(){burst(Math.random()*innerWidth,Math.random()*innerHeight*.6,70)},j*350)};
+document.getElementById("again").onclick=function(){document.getElementById("finale").classList.remove("show")};
+
+/* hiệu ứng cánh hoa & pháo giấy */
+var cv=document.getElementById("fx"),c=cv.getContext("2d"),P=[],B=[],rain=0;
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener("resize",rs);
+var cols=["#ffd54a","#fff","#ff5c8a","#ff8a3d","#c2185b","#7be0c3"];
+for(var i=0;i<38;i++)P.push(petal(true));
+function petal(init){return{x:Math.random()*innerWidth,y:init?Math.random()*innerHeight:-20,s:6+Math.random()*9,v:.6+Math.random()*1.4,r:Math.random()*6,w:Math.random()*2,d:(Math.random()-.5)*.8,c:Math.random()<.6?"rgba(255,255,255,.85)":"rgba(255,213,74,.85)"}}
+function burst(x,y,k){for(var i=0;i<k;i++){var a=Math.random()*6.28,s=3+Math.random()*7;B.push({x:x,y:y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-3,l:90,c:cols[i%cols.length],z:4+Math.random()*5})}}
+(function loop(){
+  c.clearRect(0,0,cv.width,cv.height);
+  P.forEach(function(p){p.y+=p.v;p.w+=.03;p.x+=Math.sin(p.w)*1.1+p.d;p.r+=.04;
+    if(p.y>innerHeight+20)Object.assign(p,petal(false));
+    c.save();c.translate(p.x,p.y);c.rotate(p.r);c.fillStyle=p.c;c.beginPath();c.ellipse(0,0,p.s,p.s/2,0,0,6.28);c.fill();c.restore()});
+  if(rain&&Math.random()<.5)B.push({x:Math.random()*innerWidth,y:-10,vx:(Math.random()-.5)*2,vy:2+Math.random()*3,l:200,c:cols[Math.floor(Math.random()*6)],z:5+Math.random()*4});
+  B=B.filter(function(b){b.x+=b.vx;b.y+=b.vy;b.vy+=.12;b.l--;return b.l>0});
+  B.forEach(function(b){c.globalAlpha=Math.min(1,b.l/40);c.fillStyle=b.c;c.fillRect(b.x,b.y,b.z,b.z*.6)});c.globalAlpha=1;
+  requestAnimationFrame(loop)})();
+</script>
+</body>
+</html>
